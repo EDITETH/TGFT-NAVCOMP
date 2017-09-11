@@ -1,0 +1,26 @@
+Functions:
+navcomp:PlotPathToSector (sectorId) - Plots a path after performing clerical cleanup first (calls PlotPath)
+navcomp:PlotPath (sectorId) - Plots a path to a target sector from the player’s current location
+navcomp:SavePath (args) - Saves the current active path
+navcomp:LoadPath (args)
+navcomp:ClearStorms ()
+navcomp:ToggleEvasionMode ()
+navcomp:Reset ()
+navcomp:IsEncounteredStormSector (sectorId) - Determines if the passed sectorId is a recorded storm sector
+navcomp:IsEncounteredBotSector (sectorId) - Determines if the passed sectorId is a recorded bot sector
+navcomp:IsAvoidSector (sectorId) - Determines if the sector’s notes contains the keyword #avoid:
+navcomp:IsHostileBotSector (sectorId)
+navcomp:IsBotSector (sectorId)
+navcomp:IsStationSector (sectorId)
+navcomp:IsConquerableStationSector (sectorId)
+navcomp:IsRacetrackSector (sectorId)
+navcomp:IsStarSector (sectorId)
+navcomp:IsTrainingSector (sectorId)
+navcomp:IsSectorProhibited (sectorId, true/false)
+navcomp:IsBlockableSector (sectorId, true/false)
+navcomp:IsPathProhibited (sectorId1, sectorId2, true/false)
+navcomp:IsCapitalSystem (sysId)
+
+Events:
+NAVCOMP_STARTED - Generated when Navcomp has completed initialization.
+NAVCOMP_RESTARTING - Generated whenever Navcomp is restarting (after a ReloadInterface call) or the player is logging out.
