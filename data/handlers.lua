@@ -81,7 +81,7 @@ function navcomp.data:RecordStorm (s1, inStation)
 		str = "Storm reported in "
 	end
 	if not string.find (navcomp.data.stormSectorStr, "|" .. s1 .. "|") then
-		purchaseprint (str .. AbbrLocationStr (s1))
+		print (str .. AbbrLocationStr (s1))
 		table.insert (navcomp.data.stormSectors, s1)
 		navcomp.data.isStormDataSaved = false
 		navcomp.data:AddToStormString (s1)
@@ -95,7 +95,7 @@ function navcomp.data:RecordBots (s1, inStation)
 		str = "Hive activity reported in "
 	end
 	if not string.find (navcomp.data.botSectorStr, "|" .. s1 .. "|") then
-		purchaseprint (str .. AbbrLocationStr (s1))
+		print (str .. AbbrLocationStr (s1))
 		table.insert (navcomp.data.botSectors, s1)
 		navcomp.data.isStormDataSaved = false
 		navcomp.data:AddToBotString (s1)
@@ -170,7 +170,7 @@ function navcomp.data:RemoveHostileSector (sectorId)
 	for k,v in ipairs (navcomp.data.botSectors) do
 		if v == sectorId then
 			table.remove (navcomp.data.botSectors, k)
-			purchaseprint ("Removing Hostile Bot record in " .. AbbrLocationStr (sectorId))
+			print ("Removing Hostile Bot record in " .. AbbrLocationStr (sectorId))
 			navcomp.data.botSectorStr = "|" .. table.concat (navcomp.data.botSectors, "|") .. "|"
 			navcomp.data.stressMaps [GetSystemID (sectorId)] = nil
 			break
@@ -193,7 +193,7 @@ function navcomp.data:ClearData (sysId, type)
 				end
 			end
 			navcomp.data.stormSectorStr = "|" .. table.concat (navcomp.data.stormSectors, "|") .. "|"
-			purchaseprint (string.format ("Storm Data Cleared for %s", SystemNames [sysId]))
+			print (string.format ("Storm Data Cleared for %s", SystemNames [sysId]))
 		end
 		if type == 1 or type == 3 then
 			for k, s in ipairs (navcomp.data.botSectors) do
@@ -203,7 +203,7 @@ function navcomp.data:ClearData (sysId, type)
 				end
 			end
 			navcomp.data.botSectorStr = "|" .. table.concat (navcomp.data.botSectors, "|") .. "|"
-			purchaseprint (string.format ("Hive Data Cleared for %s", SystemNames [sysId]))
+			print (string.format ("Hive Data Cleared for %s", SystemNames [sysId]))
 		end
 	else
 		-- Clear all systems
@@ -211,13 +211,13 @@ function navcomp.data:ClearData (sysId, type)
 		if type == 0 or type == 3 then
 			navcomp.data.stormSectors = {}
 			navcomp.data.stormSectorStr = ""
-			purchaseprint ("Storm Data Cleared")
+			print ("Storm Data Cleared")
 		end
 		
 		if type == 1 or type == 3 then
 			navcomp.data.botSectors = {}
 			navcomp.data.botSectorStr = ""
-			purchaseprint ("Hive Data Cleared")
+			print ("Hive Data Cleared")
 		end
 	end
 	navcomp.data.isStormDataSaved = false

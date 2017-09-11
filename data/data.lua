@@ -170,7 +170,7 @@ function navcomp.data.initialize:OnEvent (event, id)
 		RegisterEvent (navcomp.data.missions, "MISSION_ADDED")
 		RegisterEvent (navcomp.data.missions, "MISSION_REMOVED")
 		navcomp.data.isInitialized = true
-		purchaseprint ("NavComp is initialized")
+		print ("NavComp is initialized")
 		ProcessEvent ("NAVCOMP_STARTED")
 	end
 end
